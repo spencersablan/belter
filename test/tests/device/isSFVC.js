@@ -107,19 +107,6 @@ describe("isSFVC", () => {
     }
   });
 
-  it("should return true if browser scale is greater than 1 for iOS 15", () => {
-    window.navigator.userAgent = "iPhone OS 15_2";
-    window.innerWidth = 372;
-    window.screen = {
-      width: 428,
-    };
-
-    const sfvc = isSFVC();
-    if (!sfvc) {
-      throw new Error(`Expected to be SFVC when user has zoomed in iOS 15.`);
-    }
-  });
-
   it("should calculate SFVC based on browser zoom for iOS 14", () => {
     window.navigator.userAgent = "iPhone OS 14_2";
     window.outerHeight = 926;

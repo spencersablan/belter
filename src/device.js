@@ -98,17 +98,7 @@ export function isSFVC(ua?: string = getUserAgent()): boolean {
     const scale =
       Math.round((window.screen.width / window.innerWidth) * 100) / 100;
     const computedHeight = Math.round(height * scale);
-
-    let device = null;
-    if (isIOS14(ua)) {
-      device = sfvcScreens[window.outerHeight];
-    } else {
-      if (scale !== 1) {
-        return true;
-      }
-
-      device = sfvcScreens[window.outerHeight];
-    }
+    const device = sfvcScreens[window.outerHeight];
 
     if (!device) {
       return true;
